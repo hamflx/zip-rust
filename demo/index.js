@@ -17,7 +17,7 @@ function handleZipButtonClick (suffix, fn) {
         }
       })
     )
-    download(ZIP_FILE_NAME.replace('{type}', suffix), await measure(() => fn(testFiles, ZipArchive)))
+    download(ZIP_FILE_NAME.replace('{type}', suffix), await measure(suffix, () => fn(testFiles, ZipArchive)))
   }
 }
 
