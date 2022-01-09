@@ -31,7 +31,7 @@ impl ZipArchive {
         let cursor = self.zip_writer.finish().unwrap();
         let pos = cursor.position();
         let mut content = cursor.into_inner();
-        content.truncate(pos.try_into().unwrap());
+        content.truncate(std::convert::TryFrom::try_from(pos).unwrap());
         content
     }
 }
